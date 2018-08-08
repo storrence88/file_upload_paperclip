@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_08_160257) do
+ActiveRecord::Schema.define(version: 2018_08_08_210137) do
+
+  create_table "documents", force: :cascade do |t|
+    t.integer "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "file_file_name"
+    t.string "file_content_type"
+    t.integer "file_file_size"
+    t.datetime "file_updated_at"
+    t.index ["item_id"], name: "index_documents_on_item_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
